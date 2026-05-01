@@ -75,7 +75,7 @@ The objective is to classify satellite images from the EuroSAT dataset into diff
 ## Results
 
 * **ANN Accuracy:** 68%
-* **CNN Accuracy:** 95%
+* **CNN Accuracy:** 90%
 
 
 ## CNN Results
