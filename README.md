@@ -1,8 +1,13 @@
-# Image Classification using ANN (EuroSAT Dataset)
+# Image Classification using ANN & CNN (EuroSAT Dataset)
 
 ## Overview
 
-This project implements an **Artificial Neural Network (ANN)** for image classification using the EuroSAT dataset. The goal is to classify satellite images into different land-use categories.
+This project implements and compares two deep learning approaches for image classification:
+
+* **Artificial Neural Network (ANN)**
+* **Convolutional Neural Network (CNN)**
+
+The objective is to classify satellite images from the EuroSAT dataset into different land-use categories and analyze the performance difference between ANN and CNN models.
 
 ---
 
@@ -11,7 +16,7 @@ This project implements an **Artificial Neural Network (ANN)** for image classif
 * **Dataset:** EuroSAT
 * **Type:** Satellite Image Classification
 * **Classes:** Multiple land-use categories
-* Images resized to **64 × 64 pixels**
+* **Image Size:** 64 × 64 pixels
 
 ---
 
@@ -19,56 +24,95 @@ This project implements an **Artificial Neural Network (ANN)** for image classif
 
 ### Data Preprocessing
 
-* Image resizing and normalization
-* Standardization using mean and standard deviation
+* Image resizing to 64×64
+* Normalization (pixel values scaled to [0,1])
+* Standardization (for ANN)
 * Train-validation split (80:20)
 
-### Model Architecture (ANN)
+---
 
-* Fully connected neural network
-* Multiple Dense layers with ReLU activation
-* Batch Normalization and Dropout for regularization
-* Softmax output layer
+## Models Implemented
+
+### 1. Artificial Neural Network (ANN)
+
+* Fully connected dense layers
+* Batch normalization and dropout used
+* Serves as a **baseline model**
+
+---
+
+### 2. Convolutional Neural Network (CNN)
+
+* Conv2D + MaxPooling layers
+* Extracts spatial features from images
+* More effective for image classification tasks
 
 ---
 
 ## Training Details
 
-* Optimizer: Adam (learning rate = 0.0003)
-* Loss Function: Categorical Crossentropy (with label smoothing)
-* Batch Size: 16
-* Epochs: 60
+* Optimizer: Adam
+* Loss Function: Categorical Crossentropy
+* Batch Size: 16 (ANN), 32 (CNN)
+* Epochs: 60 (ANN), 25 (CNN)
 * Callbacks:
 
   * Early Stopping
-  * ReduceLROnPlateau
+  * Reduce Learning Rate (ANN)
   * Model Checkpoint
 
 ---
 
+## Model Comparison
+
+| Model | Description             | Performance          |
+| ----- | ----------------------- | -------------------- |
+| ANN   | Fully connected network | Baseline performance |
+| CNN   | Convolutional network   | Higher accuracy      |
+
+---
+
 ## Results
-- Training Accuracy: 68%
-- Validation Accuracy: 56%
 
+* **ANN Accuracy:** 68%
+* **CNN Accuracy:** 95%
 
+CNN outperformed ANN due to its ability to capture spatial features in images.
 
 ---
 
 ## Output
 
-* Trained model: `final_ann_model.keras`
-* Best model: `best_ann_model.keras`
-* Training graphs (accuracy & loss)
+* Trained Models:
+
+  * `models/final_ann_model.keras`
+  * `models/final_cnn_model.keras`
+
+* Best Models:
+
+  * `models/best_ann_model.keras`
+  * `models/best_cnn_model.keras`
+
+* Training Graphs:
+
+  * `results/ann_accuracy.png`
+  * `results/cnn_accuracy.png`
 
 ---
 
-## Technologies Used
+## Project Structure
 
-* Python
-* TensorFlow / Keras
-* NumPy
-* Matplotlib
-* Scikit-learn
+```
+image-classification-ann-eurosat/
+│── data/
+│── models/
+│── results/
+│── src/
+│   ├── train_ann.py
+│   └── train_cnn.py
+│── requirements.txt
+│── README.md
+```
 
 ---
 
@@ -87,23 +131,48 @@ cd image-classification-ann-eurosat
 pip install -r requirements.txt
 ```
 
-3. Run the training script
+3. Run ANN model
 
 ```
 python src/train_ann.py
 ```
 
+4. Run CNN model
+
+```
+python src/train_cnn.py
+```
+
+---
+
+## Technologies Used
+
+* Python
+* TensorFlow / Keras
+* NumPy
+* Matplotlib
+* Scikit-learn
+* Pillow
+
+---
+
+## Key Insights
+
+* CNN significantly improves performance over ANN for image classification
+* Feature extraction plays a crucial role in deep learning models
+* Model comparison helps in selecting the best architecture
+
 ---
 
 ## Future Work
 
-* Implement CNN model for performance comparison
-* Improve accuracy using data augmentation
+* Apply data augmentation techniques
 * Hyperparameter tuning
+* Implement advanced CNN architectures (ResNet, VGG)
 
 ---
 
 ## Author
 
-Likith B
-
+**Likith B**
+AI & Machine Learning Student
