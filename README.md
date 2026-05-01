@@ -47,12 +47,10 @@ This project implements an **Artificial Neural Network (ANN)** for image classif
 ---
 
 ## Results
+- Training Accuracy: 68%
+- Validation Accuracy: 56%
 
-* Model trained on EuroSAT dataset
-* Validation accuracy improves with training
-* ANN provides baseline performance for image classification
 
-68% Accuracy
 
 ---
 
@@ -108,4 +106,4 @@ python src/train_ann.py
 ## Author
 
 Likith B
-AI & Machine Learning Student
+
