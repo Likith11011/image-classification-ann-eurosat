@@ -80,6 +80,15 @@ The objective is to classify satellite images from the EuroSAT dataset into diff
 CNN outperformed ANN due to its ability to capture spatial features in images.
 
 ---
+## Note on Model Files
+
+Trained model files are not included in this repository due to size limitations.
+
+To generate the models, run:
+
+python src/train_ann.py  
+python src/train_cnn.py
+
 
 ## Output
 
