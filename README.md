@@ -77,6 +77,11 @@ The objective is to classify satellite images from the EuroSAT dataset into diff
 * **ANN Accuracy:** 68%
 * **CNN Accuracy:** 95%
 
+
+## CNN Results
+![CNN Accuracy](results/cnn_accuracy.png)
+
+
 CNN outperformed ANN due to its ability to capture spatial features in images.
 
 ---
